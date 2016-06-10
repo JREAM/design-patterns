@@ -3,6 +3,8 @@
 These are design patterns in their simplest form.
 Currently the **bold** items are ones I have examples for.
 
+More will come later on.
+
 - abstract_factory
 - adapter
 - **builder**
@@ -26,3 +28,7 @@ This is made to understand patterns as simple as possible. So here are a few thi
 - You would generally:
   - Change the actual name of the class(es).
   - Put classes in separate files.
+
+  --
+
+  (c) 2016 Jesse Boyer | MIT License
