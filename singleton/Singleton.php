@@ -1,40 +1,53 @@
 <?php
 /**
  * Singleton
- * @desc Only allow a single einstance of the class
+ * @desc Only allow a single einstance of the sub classes
+ *      By having a singleton class, we ar enot limited to writing
+ *      static getters and checkers for every singleton object.
  */
 class Singleton
 {
-    protected static $instantiated = false;
-    protected $name;
+    private static $instance;
 
-    public function __construct() {
+    // This is how we get our instance
+    public static function getInstance() {
+
         // If instantied, return the current instance
-        if (self::$instantiated) {
-            return $this;
+        if (self::$instance) {
+            return self::$instance;
         }
 
-        // Only allow one instantiation
-        self::$instantiated = true;
+        // Late Static Binding (not self)
+        // Allows this class to be re-used
+        return new static();
     }
 
+    // Dont allow this to be fetched with  "new Class;"
+    protected function __construct() {}
+
+
+    // Prevent cloning
+    private function __clone() {}
+
+    // Prevent unserialization
+    private function __wakeup() {}
+
+}
+
+// Now we can have as many singleton classes as we want
+class UserSingleton extends Singleton
+{
     public function setName($name) {
         $this->name = $name;
     }
 
     public function getName() {
-        return $this->name;
+        return $name;
     }
 }
 
 /**
  * Example
  */
-$singleton = new Singleton();
-$singleton->setName('Jesse');
-
-// Returns $singleton instance rather than a new one
-$try_new = new Singleton();
-
-// Returns Jesse, non-singletons would return the default value.
-$try_new->getName();
+$user = new Singleton();
+$user->setName('Jesse');
