@@ -1,16 +1,15 @@
 <?php
 /**
- * Singleton
+ * SingletonLegacy
  *
  * @desc
  *     Allows only one instance of the class
- *     The modern way allows you to define Singleton once
  *
  * @example
  *     You only wanted one Database object
  *     You only wanted one Front Controller (MVC)
  */
-class Singleton
+class SingletonLegacy
 {
     /**
      * This stores the only instance of this class.
@@ -18,6 +17,8 @@ class Singleton
      * @var boolean|object
      */
     private static $instance = false;
+
+    protected $dsn;
 
     /**
      * This is how we get our single instance
@@ -27,38 +28,20 @@ class Singleton
     public static function getInstance() {
         // If we have no instance, create one.
         if (self::$instance == false) {
-            self::$instance = new static();
+            $class = __CLASS__;
+            self::$instance = new SingletonLegacy;
         }
 
-        // Late Static Binding,
-        // Allows Pattern to be Re-used
+        // If we have an instance, return it
         return self::$instance;
     }
 
-
     /**
-     * Don't allow the "new Class" construct
+     * Called Internally, but must be protected or private
      */
-    protected function __construct() {}
-
-    /**
-     * Don't allow clones of this object
-     */
-    private function __clone() {}
-
-    /**
-     * Don't allow serialization of this object
-     */
-    private function __wakeup() {}
-}
-
-/**
- * This is an example class which re-uses
- * the Singleton pattern.
- */
-class Database extends Singleton
-{
-    protected $dsn;
+    private function __construct() {
+        return "Class Created.";
+    }
 
     /**
      * Example method (Not part of the pattern)
@@ -75,18 +58,29 @@ class Database extends Singleton
     public function getDsn() {
         return $this->dsn;
     }
+
+    /**
+     * Don't allow clones of this object
+     */
+    private function __clone() {}
+
+    /**
+     * Don't allow serialization of this object
+     */
+    private function __wakeup() {}
 }
 
 /**
  * Example
  */
-$database = Database::getInstance();
+$database = SingletonLegacy::getInstance();
 $database->setDsn('mysql://');
 echo $database->getDsn() . PHP_EOL;
 
 // Getting the instance again will still use the same instance
-$foo = Database::getInstance();
+$foo = SingletonLegacy::getInstance();
 $foo->setDsn('postgres://');
 
 echo $foo->getDsn() . PHP_EOL;
 echo $database->getDsn() . PHP_EOL;
+
