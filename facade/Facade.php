@@ -1,10 +1,18 @@
 <?php
 /**
  * Facade
- * @desc This is good for have a "Base" class that calls the same methods
- *       on other classes which do the same thing but with minor tweaks.
- *       A good example would be figuring out a Retail price based on 
- *       a product.
+ *
+ * @desc
+ *     Takes a bundle of similar classes and puts all the shared functionality
+ *     into one. It acts like a mask for different classes that do similar
+ *     things.
+ *
+ * @usage
+ *     Handle Prices from different suppliers/vendors.
+ *     Handle a Shopping Cart checkout process.
+ *
+ * @example
+ *     We will create a Retail Price calculator.
  *
  */
 class Facade // Should be called RetailPriceFacade
@@ -26,6 +34,9 @@ class Facade // Should be called RetailPriceFacade
 
 }
 
+// --------------------------------------------------------
+// Fake Class(es) for Example
+// --------------------------------------------------------
 class WholesaleCost
 {
     public function __construct($item_id, $vendor_id) {
@@ -44,9 +55,9 @@ class MarkupCost
 
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 // Here you would pss the item_id and vendor_id
 $toysrus = new Facade(1, 2);
 $kbtoys = new Facade(1, 3);

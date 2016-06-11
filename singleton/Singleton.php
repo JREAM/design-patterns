@@ -3,12 +3,16 @@
  * Singleton
  *
  * @desc
- *     Allows only one instance of the class
- *     The modern way allows you to define Singleton once
+ *     Allows only one instance of the class.
+ *     The modern way allows you to define Singleton once.
+ *
+ * @usage
+ *     You only wanted one Database object.
+ *     You only wanted one Front Controller (MVC).
  *
  * @example
- *     You only wanted one Database object
- *     You only wanted one Front Controller (MVC)
+ *     We create a fake Singleton Database Object.
+ *
  */
 class Singleton
 {
@@ -52,10 +56,9 @@ class Singleton
     private function __wakeup() {}
 }
 
-/**
- * This is an example class which re-uses
- * the Singleton pattern.
- */
+// --------------------------------------------------------
+// Fake Class(es) for Example
+// --------------------------------------------------------
 class Database extends Singleton
 {
     protected $dsn;
@@ -77,9 +80,9 @@ class Database extends Singleton
     }
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 $database = Database::getInstance();
 $database->setDsn('mysql://');
 echo $database->getDsn() . PHP_EOL;

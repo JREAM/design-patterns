@@ -1,13 +1,22 @@
 <?php
 /**
- * Factory or Factory Method
- * @desc This creates instances of subclasses. If you were wanted to load various shipping vendors this would work.
+ * Factory (Factory Method)
  *
- * All items in a factory must have the same methods, so use an abstract class to enforce this.
+ * @desc
+ *     This loads/creates instances of it's common subclasses.
+ *     It's really a factory, something that produces classes.
  *
- * In reality you should would name this:
- *     - ShippingFactory
- *     - AbstractShippingFactory
+ *     All items in a factory must have the same methods,
+ *         so an abstract class is used to enforce this.
+ *
+ * @usage
+ *     Load various Shipping Suppliers.
+ *
+ * @example
+ *     We will create a Shipping Provider Factory.
+ *     In reality you should would name the classes:
+ *         - ShippingFactory
+ *         - AbstractShippingFactory
  */
 class Factory
 {
@@ -22,9 +31,13 @@ class Factory
     }
 }
 
-// This enforces rules on our SubClasses so they
-// are all the same.
+// --------------------------------------------------------
+// Fake Class(es) for Example
+// --------------------------------------------------------
+
 abstract class AbstractProvider {
+    // This enforces rules on our SubClasses so they
+    // are all the same.
     abstract function getName();
     abstract function getStdRate();
 }
@@ -57,9 +70,9 @@ class FedEx extends AbstractProvider {
     }
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 $factory = new Factory();
 $ups   = $factory->createProvider('UPS');
 $fedex = $factory->createProvider('FedEx');

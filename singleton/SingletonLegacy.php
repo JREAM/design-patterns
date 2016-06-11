@@ -3,11 +3,16 @@
  * SingletonLegacy
  *
  * @desc
- *     Allows only one instance of the class
+ *     Allows only one instance of the class.
+ *     The legacy way requires you to re-use the same code per class.
  *
- * @example
+ * @usage
  *     You only wanted one Database object
  *     You only wanted one Front Controller (MVC)
+ *
+ * @example
+ *     We create a fake Singleton Database Object.
+ *
  */
 class SingletonLegacy
 {
@@ -70,9 +75,9 @@ class SingletonLegacy
     private function __wakeup() {}
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 $database = SingletonLegacy::getInstance();
 $database->setDsn('mysql://');
 echo $database->getDsn() . PHP_EOL;

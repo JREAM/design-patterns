@@ -1,12 +1,21 @@
 <?php
 /**
  * Front Controller
- * @desc This is used for web applications as an entry point. It is usually the main
- *       target (by something like .htaccess to index.php to load this).
  *
- *       This could also implement the Singleton pattern as only one instance is needed.
+ * @desc
+ *     This mostly is used for web applications as an entry point.
+ *     It is usually the main target object by something like an MVC
+ *     which points to index.php to load this and handle the requests.
  *
- *       There is no one-way to do this, but this gives you an idea.
+ *     There is no one-way to do this, but this gives you an idea.
+ *
+ * @usage
+ *     MVC Entry Point
+ *     Application Entry Point
+ *
+ *
+ * @example
+ *     We will create a fake MVC request handler.
  *
  */
 class FrontController
@@ -41,6 +50,9 @@ class FrontController
     }
 }
 
+// --------------------------------------------------------
+// Fake Class(es) for Example
+// --------------------------------------------------------
 class DependencyManager {
     public function __construct() {
         // This could do stuff that autoloaders dont include
@@ -66,9 +78,9 @@ class Response{
     }
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 $frontctrl  = new FrontController();
 $frontctrl->setResponse(new Reponse);
 $frontctrl->dispatch($_REQUEST);

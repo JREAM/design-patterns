@@ -1,9 +1,18 @@
 <?php
 /**
  * Builder
- * @desc There are two classes, a Builder and a Director. The Builder assembles object or output, The Director defines the setings for the builder.
  *
- * We need something to build with our two classes, so for an example we are going to build a House
+ * @desc
+ *     There are two classes, Builder and Director:
+ *         The Director defines settings for the Builder.
+ *         The Builder assembles the item to output.
+ *
+ * @usage
+ *     Creating DOM elements.
+ *     Creating XML content.
+ *
+ * @example
+ *     We will create a house for this example
  *
  */
 class Builder
@@ -43,6 +52,9 @@ class Director
     }
 }
 
+// --------------------------------------------------------
+// Fake Class(es) for Example
+// --------------------------------------------------------
 class House
 {
     private $house; // This contains the House object
@@ -63,9 +75,9 @@ class House
     }
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 $builder  = new Builder();
 $director  = new Director();
 $director->buildHouse();

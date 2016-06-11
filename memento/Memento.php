@@ -1,7 +1,17 @@
 <?php
 /**
  * Momento
- * @desc Memento holds the state of another object
+ *
+ * @desc
+ *     Memento holds the state of another object.
+ *     Memento is the Caretaker of the Originating class.
+ *
+ * @usage
+ *     You want an object to have undo functionality.
+ *
+ * @example
+ *     We will create a Task List.
+ *
  */
 class Memento
 {
@@ -33,7 +43,7 @@ class Memento
 class Task
 {
     private $task;
-    private $page;
+    private $details;
 
     public function __construct(Memento $memento) {
         $this->setTask($memento);
@@ -58,9 +68,9 @@ class Task
 
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 $todo = 'Create Bucket List';
 $description = 'I want to make a bucket list for adventures.';
 
@@ -69,4 +79,5 @@ $task = new Task($momento);
 
 $memento->setTask("Practice Basketball");
 $result = $memento->getTask();
+
 echo $result;

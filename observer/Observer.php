@@ -1,9 +1,24 @@
 <?php
 /**
  * Observer
- * @desc The Observer pattern has a Subject, and your Observer(s) listen for changes. What you do with the changes is up to you!
  *
- * You can have many observers attached to one Subject.
+ * @desc
+ *     The Observer pattern has two classes minimum: Subject and Observer(s).
+ *         Observers listen for notifications.
+ *         Subjects notify the Observer.
+ *
+ *     You can have many observers attached to one Subject.
+ *
+ * @usage
+ *     You want to know what happens in your framework everywhere
+ *     You want to know what happens in any object
+ *     You want to log anything from anywhere
+ *
+ * @example
+ *     In reality you might have these classes:
+ *         - MessageObserver
+ *         - RouteObserver
+ *         - Subject
  */
 class Observer
 {
@@ -50,9 +65,9 @@ class Subject
     }
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 $subject  = new Subject();
 $observer = new Observer();
 $subject->attach($observer);

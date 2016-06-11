@@ -1,8 +1,16 @@
 <?php
 /**
  * Prototype
- * @desc This is like cloning sheep and multiplying them rapidly.
  *
+ * @desc
+ *     This is like cloning sheep and multiplying them rapidly.
+ *
+ *
+ * @usage
+ *     desc
+ *
+ * @example
+ *     We will clone sheep.
  */
 class Prototype
 {
@@ -18,19 +26,23 @@ class Prototype
     }
 }
 
+// --------------------------------------------------------
+// Fake Class(es) for Example
+// --------------------------------------------------------
 class Sheep
 {
     public $herd = [];
 
     public function __clone() {
-        // If we don't clone the variable rather than the class, it will copy an existing instance.
+        // If we don't clone the variable rather than the class,
+        // it will copy an existing instance.
         $this->herd[] = clone $this->herd[0];
     }
 }
 
-/**
- * Example
- */
+// --------------------------------------------------------
+// Example
+// --------------------------------------------------------
 $prototype = new Prototype();
 $sheep = new Sheep();
 $sheep->herd[] = clone $sheep;
