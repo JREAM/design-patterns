@@ -12,6 +12,7 @@ More will come later on.
   operations.
 - composite - Composer objects in a tree structure and handle them individually.
 - decorator - Add more responsibility to objects dynamically.
+- dependency injection - Easily share "services" across a platform.
 - facade - Makes subsystems easier to use.
 - **factory** - Creates a single subclass with that are similar.
 - front_controller - Most MVC's and web applications use this pattern.
