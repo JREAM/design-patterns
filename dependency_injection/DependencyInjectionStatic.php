@@ -35,6 +35,8 @@
  *     This is a STATIC way of doing it.
  *
  */
+use DependencyInjectionStatic as DI; // I would call the actual class this probably.
+
 require_once '../constants.php'; // For NEWLINE output
 
 // Fake Class(es) for Example
@@ -42,7 +44,53 @@ require_once 'FakeEmail.php';
 
 class DependencyInjectionStatic
 {
+    protected static $services = [];
 
+    /**
+     * Register a service and store it in this container
+     *
+     * @param  str $name  Our identifier to get our service
+     * @param  array  $values  [description]
+     *
+     * @return void
+     */
+    public static function register($name, callable $callable)
+    {
+        self::$services[$name] = $callable;
+    }
+
+    /**
+     * Return One or All services
+     *
+     * @param  boolean|string $name Optional for specific service
+     *
+     * @return mixed  Whatever you define
+     */
+    public static function get($name)
+    {
+        if (self::exists($name)) {
+            $closure = self::$services[$name];
+            return $closure();
+        }
+        throw new \Exception("
+            The service: $name is not in the Dependency Injector
+        ");
+    }
+
+    /**
+     * See if a service is set
+     *
+     * @param  str $name
+     *
+     * @return bool
+     */
+    public static function exists($name)
+    {
+        if (array_key_exists($name, self::$services)) {
+            return true;
+        }
+        return false;
+    }
 }
 
 // --------------------------------------------------------
@@ -61,3 +109,20 @@ $config = [
 // --------------------------------------------------------
 // Example
 // --------------------------------------------------------
+// Simple
+DependencyInjectionStatic::register('foo', function() {
+    return 'foo'; // NEVER FOREGET to return!
+});
+
+DI::register('email', function() use ($config) {
+    $email = new \EmailService();
+    $email->setOptions($config['email']);
+    return $email; // NEVER FOREGET to return!
+});
+
+$foo = DI::get('foo');
+$email = DI::get('email');
+echo $foo;
+echo NEWLINE;
+echo $email->send();
+echo NEWLINE;

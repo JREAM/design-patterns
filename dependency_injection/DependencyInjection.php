@@ -99,6 +99,8 @@ class DependencyInjection
      *
      * @param string   $name
      * @param callable $callable
+     *
+     * @TODO Broken
      */
     public function __set($name, callable $callable) {
         $this->register($name, $callable);
@@ -108,6 +110,7 @@ class DependencyInjection
      * Magic method for shorthand
      *     eg: $di->email;
      *
+     * @TODO Broken
      * @param string   $name
      */
     public function __get($name) {
@@ -193,4 +196,3 @@ echo call_user_func($formatter->lc, 'uppercase me.');
 echo NEWLINE;
 echo call_user_func_array($formatter->add, [5, 5]);
 echo NEWLINE;
-
