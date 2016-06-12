@@ -18,6 +18,8 @@
  *     We will create a fake MVC request handler.
  *
  */
+require_once '../constants.php'; // For NEWLINE output
+
 class FrontController
 {
     public $router;
@@ -85,4 +87,6 @@ $frontctrl  = new FrontController();
 $frontctrl->setResponse(new Reponse);
 $frontctrl->dispatch($_REQUEST);
 
+echo NEWLINE;
 print '<pre>' . print_r($frontctrl) . '</pre>';
+echo NEWLINE;

@@ -15,6 +15,8 @@
  *     We will create a Retail Price calculator.
  *
  */
+require_once '../constants.php'; // For NEWLINE output
+
 class Facade // Should be called RetailPriceFacade
 {
     public $item_id;
@@ -64,12 +66,16 @@ $kbtoys = new Facade(1, 3);
 $bestbuy = new Facad(1, 4);
 
 $retail_prices = [
-    'toysrus' => $toysrus->process();
-    'kbtoys' => $kbtoys->process();
-    'bestbuy' => $bestbuy->process();
+    'toysrus' => $toysrus->process(),
+    'kbtoys' => $kbtoys->process(),
+    'bestbuy' => $bestbuy->process(),
 ];
 
 // Sell the most expensive item
 arsort($retail_prices);
-$most_expnsive = $retail_prices[0];
+reset($retail_prices);
+$most_expensive = key($retail_prices);
 
+sprintf("Most Cost Effective: %s", $most_expensive);
+
+echo NEWLINE;

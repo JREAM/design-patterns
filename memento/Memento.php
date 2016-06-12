@@ -13,6 +13,8 @@
  *     We will create a Task List.
  *
  */
+require_once '../constants.php'; // For NEWLINE output
+
 class Memento
 {
     private $task;
@@ -78,6 +80,9 @@ $memento = new Momento($todo, $description);
 $task = new Task($momento);
 
 $memento->setTask("Practice Basketball");
-$result = $memento->getTask();
+$memento->setTask("I need to do a lot of layups");
 
-echo $result;
+echo $memento->getTask();
+echo NEWLINE;
+echo $memento->getDescription();
+echo NEWLINE;

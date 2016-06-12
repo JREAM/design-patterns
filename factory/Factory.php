@@ -18,6 +18,8 @@
  *         - ShippingFactory
  *         - AbstractShippingFactory
  */
+require_once '../constants.php'; // For NEWLINE output
+
 class Factory
 {
     // Thsi generates
@@ -77,8 +79,14 @@ $factory = new Factory();
 $ups   = $factory->createProvider('UPS');
 $fedex = $factory->createProvider('FedEx');
 
-echo $ups->getName() . '<br>';
-echo $ups->getStdRate() . '<br>';
-echo '<hr>';
-echo $fedex->getName() . '<br>';
-echo $fedex->getStdRate() . '<br>';
+echo NEWLINE;
+echo $ups->getName();
+echo NEWLINE;
+echo $ups->getStdRate();
+
+echo str_repeat(NEWLINE, 2);
+
+echo $fedex->getName();
+echo NEWLINE;
+echo $fedex->getStdRate();
+echo NEWLINE;

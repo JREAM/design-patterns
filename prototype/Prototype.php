@@ -12,6 +12,8 @@
  * @example
  *     We will clone sheep.
  */
+require_once '../constants.php'; // For NEWLINE output
+
 class Prototype
 {
     public static $instances = 0;
@@ -50,8 +52,11 @@ $sheep->herd[] = clone $sheep;
 
 $cloned_herd = clone($sheep);
 
+echo NEWLINE;
 echo 'Main Sheep Object:<br>';
 print_r($sheep);
 
+echo NEWLINE;
 echo 'Cloned Sheep Objects:<br>';
 print_r($cloned_herd);
+echo NEWLINE;

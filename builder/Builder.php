@@ -15,6 +15,8 @@
  *     We will create a house for this example
  *
  */
+require_once '../constants.php'; // For NEWLINE output
+
 class Builder
 {
     private $house;
@@ -83,4 +85,6 @@ $director  = new Director();
 $director->buildHouse();
 $house = $director->getHouse();
 
+echo NEWLINE;
 print '<pre>' . print_r($house) . '</pre>';
+echo NEWLINE;

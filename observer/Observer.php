@@ -10,9 +10,9 @@
  *     You can have many observers attached to one Subject.
  *
  * @usage
- *     You want to know what happens in your framework everywhere
- *     You want to know what happens in any object
- *     You want to log anything from anywhere
+ *     You want to know what happens in your framework everywhere.
+ *     You want to know what happens in any object.
+ *     You want to log anything from anywhere.
  *
  * @example
  *     In reality you might have these classes:
@@ -20,11 +20,13 @@
  *         - RouteObserver
  *         - Subject
  */
+require_once '../constants.php'; // For NEWLINE output
+
 class Observer
 {
     public function update($subject) {
         // Handle what to do when an object changes
-        prinft("State Change, new subject: %s", $subject);
+        printf("State Change, new subject: %s", $subject);
     }
 }
 
@@ -73,5 +75,5 @@ $observer = new Observer();
 $subject->attach($observer);
 
 // Notificies the Observer(s)
-$subject->updateName('Jesse');
-$subject->updateName('Joseph');
+$subject->updateName('Jesse');  // Outputs Event
+$subject->updateName('Joseph'); // Outputs Event

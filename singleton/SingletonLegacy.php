@@ -14,6 +14,8 @@
  *     We create a fake Singleton Database Object.
  *
  */
+require_once '../constants.php'; // For NEWLINE output
+
 class SingletonLegacy
 {
     /**
@@ -80,12 +82,16 @@ class SingletonLegacy
 // --------------------------------------------------------
 $database = SingletonLegacy::getInstance();
 $database->setDsn('mysql://');
-echo $database->getDsn() . PHP_EOL;
+
+echo $database->getDsn();
+echo NEWLINE;
 
 // Getting the instance again will still use the same instance
 $foo = SingletonLegacy::getInstance();
 $foo->setDsn('postgres://');
 
-echo $foo->getDsn() . PHP_EOL;
-echo $database->getDsn() . PHP_EOL;
+echo $foo->getDsn();
+echo NEWLINE;
+echo $database->getDsn();
+echo NEWLINE;
 
