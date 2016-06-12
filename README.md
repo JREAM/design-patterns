@@ -12,12 +12,12 @@ More will come later on.
   operations.
 - composite - Composer objects in a tree structure and handle them individually.
 - decorator - Add more responsibility to objects dynamically.
-- dependency injection - Easily share "services" across a platform.
+- **dependency_injection** - Easily share "services" across a platform. (DI, aka IoC/Inversion of Control)
 - facade - Makes subsystems easier to use.
 - **factory** - Creates a single subclass with that are similar.
 - front_controller - Most MVC's and web applications use this pattern.
 - iterator - Access elements of an aggregate object without knowing whats under
-  the hood. 
+  the hood.
 - **memento** - No encapsulation, allows you to change an objects internal state
   and restore it.
 - **observer** - (aka Publish/Subscribe) One to Many Dependency to notify that
@@ -35,12 +35,13 @@ More will come later on.
 This is made to understand patterns as simple as possible. So here are a few things to know:
 
 - Notes are provided in the class.
-- Examples are provided at the bottom of the class.
+- I will **not** be using namespaces to keep it simple.
+- At the bottom of the class contain examples.
 - The name of the pattern is the name of the class.
-- Classes not requiring Abstract Classes and Interfaces are not included to keep it simple.
-- You would generally:
-  - Change the actual name of the class(es).
-  - Put classes in separate files.
+- Classes **not** requiring Abstract Classes and Interfaces are **not included** to keep it simple.
+- **You would generally do this:**
+  - In most cases, change the name of the class(es).
+  - Put your classes in separate files.
 
   --
 

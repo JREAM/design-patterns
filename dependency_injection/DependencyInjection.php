@@ -27,12 +27,12 @@
  *         You could make it a variable assigned to a class
  *         Just avoid global variables.
  *
- *     We will create a DI pattern and make two fake services.
- *     Your services could be anything, and it's smarter in PHP
+ *     We will create a DI pattern and make fake services.
+ *     Your services could be anything, and it's wiser in PHP
  *     to use Composer packages already written and inject them
  *     into the DI, such as Illuminate (DB) and SwiftMailer (Email).
  *
- *     Yet for these examples I will use two fake classes.
+ *     This is a STANDARD (NON STATIC) way of doing it.
  *
  */
 require_once '../constants.php'; // For NEWLINE output
