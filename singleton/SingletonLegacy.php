@@ -36,7 +36,7 @@ class SingletonLegacy
         // If we have no instance, create one.
         if (self::$instance == false) {
             $class = __CLASS__;
-            self::$instance = new SingletonLegacy;
+            self::$instance = new $class;
         }
 
         // If we have an instance, return it
