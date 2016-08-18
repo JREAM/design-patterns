@@ -6,7 +6,7 @@ Currently the **bold** items are ones I have examples for.
 More will come later on.
 
 - abstract_factory - Creates families of related objects.
-- adapter - Lets classes work together that don't have compatible interfaces.
+- **adapter** - Lets classes work together that don't have compatible interfaces.
 - **builder** - Separate construction of complex objects.
 - command - Add parameters to clients with different requets, and undoable
   operations.
@@ -23,7 +23,7 @@ More will come later on.
 - **observer** - (aka Publish/Subscribe) One to Many Dependency to notify that
   an object has changed.
 - **prototype** - Create new object by cloning from a skeleton of an object.
-- proxy - laceholder for another object to acccess it.
+- proxy - Placeholder for another object to acccess it.
 - **singleton** - Only allow one instance for an objects lifespan.
 - state - Alter an object when it changes state.
 - template method - Subclasses can redfine certain steps of without messing up
