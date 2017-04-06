@@ -19,7 +19,7 @@ More will come later on.
 - iterator - Access elements of an aggregate object without knowing whats under
   the hood.
 - **memento** - No encapsulation, allows you to change an objects internal state
-  and restore it.
+- **multi_inherit** - Extend a base class and act as if we can extend other classes for added functionality
 - **observer** - (aka Publish/Subscribe) One to Many Dependency to notify that
   an object has changed.
 - **prototype** - Create new object by cloning from a skeleton of an object.
