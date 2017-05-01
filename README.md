@@ -18,6 +18,7 @@ More will come later on.
 - front_controller - Most MVC's and web applications use this pattern.
 - iterator - Access elements of an aggregate object without knowing whats under
   the hood.
+- **mediator** - Decouples Objects and Coordinates them together with a middle man (Events, Notifications)
 - **memento** - No encapsulation, allows you to change an objects internal state
 - **multi_inherit** - Extend a base class and act as if we can extend other classes for added functionality
 - **observer** - (aka Publish/Subscribe) One to Many Dependency to notify that
