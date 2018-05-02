@@ -76,7 +76,7 @@ class Task
 $todo = 'Create Bucket List';
 $description = 'I want to make a bucket list for adventures.';
 
-$memento = new Momento($todo, $description);
+$memento = new Memento($todo, $description);
 $task = new Task($memento);
 
 $memento->setTask("Practice Basketball");
