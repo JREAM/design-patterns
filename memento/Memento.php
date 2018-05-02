@@ -1,6 +1,6 @@
 <?php
 /**
- * Momento
+ * Memento
  *
  * @desc
  *     Memento holds the state of another object.
@@ -52,19 +52,19 @@ class Task
         $this->setdetails($memento);
     }
 
-    public function setTask(Memento $momento) {
+    public function setTask(Memento $memento) {
         $this->task = $memento->getTask();
     }
 
-    public function setDetails(Memento $momento) {
+    public function setDetails(Memento $memento) {
         $this->details = $memento->getDetails();
     }
 
-    public function getTask(Memento $momento) {
+    public function getTask(Memento $memento) {
         $memento->setDetails($this->task);
     }
 
-    public function getDetails(Memento $momento) {
+    public function getDetails(Memento $memento) {
         $memento->setDetails($this->details);
     }
 
@@ -76,8 +76,8 @@ class Task
 $todo = 'Create Bucket List';
 $description = 'I want to make a bucket list for adventures.';
 
-$memento = new Momento($todo, $description);
-$task = new Task($momento);
+$memento = new Memento($todo, $description);
+$task = new Task($memento);
 
 $memento->setTask("Practice Basketball");
 $memento->setTask("I need to do a lot of layups");
