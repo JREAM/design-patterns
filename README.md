@@ -1,4 +1,4 @@
-# Design Patterns
+#Definite Design Patterns
 
 These are design patterns in their simplest form.
 Currently the **bold** items are ones I have examples for.
